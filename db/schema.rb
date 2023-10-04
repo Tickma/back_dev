@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_26_015012) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_27_083233) do
   create_table "prefectures", force: :cascade do |t|
     t.string "name"
     t.string "name_kana"
@@ -18,4 +18,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_26_015012) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password"
+    t.date "birthday"
+    t.string "gender"
+    t.integer "prefecture_id_id"
+    t.string "job"
+    t.string "icon_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prefecture_id_id"], name: "index_users_on_prefecture_id_id"
+  end
+
+  add_foreign_key "users", "prefecture_ids"
 end
