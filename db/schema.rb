@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_27_083233) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_05_015723) do
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id_id"
+    t.string "event_image"
+    t.string "event_title"
+    t.string "dutch"
+    t.string "genre"
+    t.integer "prefecture_id_id"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prefecture_id_id"], name: "index_events_on_prefecture_id_id"
+    t.index ["user_id_id"], name: "index_events_on_user_id_id"
+  end
+
   create_table "prefectures", force: :cascade do |t|
     t.string "name"
     t.string "name_kana"
@@ -32,5 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_27_083233) do
     t.index ["prefecture_id_id"], name: "index_users_on_prefecture_id_id"
   end
 
+  add_foreign_key "events", "prefecture_ids"
+  add_foreign_key "events", "user_ids"
   add_foreign_key "users", "prefecture_ids"
 end
