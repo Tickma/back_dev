@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :password
       t.date :birthday
       t.string :gender
-      t.belongs_to :prefecture_id, index: true, foreign_key: true
+      t.belongs_to :prefecture_id, index: true, foreign_key: true, optional: true
       t.string :job
       t.string :icon_image
 
