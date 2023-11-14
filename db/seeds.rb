@@ -57,7 +57,7 @@ prefectures = [
 ]
 
 users = [
-  {"name": "チケマ太郎", "email": "tickma@email.com", "password": "tickmapass", "birthday": "2023-10-18", "gender": "男性", "prefecture_id_id": 1, "job": "OL", "icon_image": "tickmaimage"}
+  {"name": "チケマ太郎", "email": "tickma@email.com", "password": "tickmapass", "birthday": "2023-10-18", "gender": "男性", "prefecture_id": 1, "job": "OL", "icon_image": "tickmaimage"}
 ]
 
 ActiveRecord::Base.transaction do

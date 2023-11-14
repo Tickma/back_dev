@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
-
   def show
+    @users = User.all
     render json: {status: 'success', data: @users}
   end
 
