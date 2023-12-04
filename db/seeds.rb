@@ -55,8 +55,16 @@ prefectures = [
     {"name": "鹿児島県","name_kana": "かごしま"},
     {"name": "沖縄県","name_kana": "おきなわ"}
 ]
+
+users = [
+  {"name": "チケマ太郎", "email": "tickma@email.com", "password": "tickmapass", "birthday": "2023-10-18", "gender": "男性", "prefecture_id": 1, "job": "OL", "icon_image": "tickmaimage"}
+]
+
 ActiveRecord::Base.transaction do
   prefectures.each do |prefecture|
     Prefecture.create!(prefecture)
+  end
+  users.each do |user|
+    User.create!(user)
   end
 end
