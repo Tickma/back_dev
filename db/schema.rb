@@ -47,17 +47,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_05_022743) do
     t.string "password"
     t.date "birthday"
     t.string "gender"
-    t.integer "prefecture_id_id"
+    t.integer "prefecture_id"
     t.string "job"
     t.string "icon_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["prefecture_id_id"], name: "index_users_on_prefecture_id_id"
+    t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
   end
 
   add_foreign_key "event_users", "event_ids"
   add_foreign_key "event_users", "user_ids"
   add_foreign_key "events", "prefecture_ids"
   add_foreign_key "events", "user_ids"
-  add_foreign_key "users", "prefecture_ids"
 end
