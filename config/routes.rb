@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'user', to: 'users#show'
+  get 'user', to: 'users#index'
+  get 'user/:id', to: 'users#show'
   post 'user', to: 'users#addUser'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
