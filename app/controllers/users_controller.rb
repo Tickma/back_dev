@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.find(params[:id])
-    render json: {status: 'success', data: @users}
+    user = User.find(params[:id])
+    render json: {status: 'success', data: user}
   end
 
   def addUser
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def deleteUser
     user = User.find(params[:id])
-    todo.destroy
+    user.destroy
   end
 
   private
