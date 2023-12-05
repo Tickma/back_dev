@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-  def show
+  def index
     @users = User.all
+    render json: {status: 'status', data: @users}
+  end
+
+  def show
+    @users = User.find(params[:id])
     render json: {status: 'success', data: @users}
   end
 
