@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_05_022743) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_05_023321) do
   create_table "event_users", force: :cascade do |t|
     t.integer "user_id_id"
     t.integer "event_id_id"
@@ -32,6 +32,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_05_022743) do
     t.datetime "updated_at", null: false
     t.index ["prefecture_id_id"], name: "index_events_on_prefecture_id_id"
     t.index ["user_id_id"], name: "index_events_on_user_id_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "chatroom_id", null: false
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "prefectures", force: :cascade do |t|
@@ -59,4 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_05_022743) do
   add_foreign_key "event_users", "user_ids"
   add_foreign_key "events", "prefecture_ids"
   add_foreign_key "events", "user_ids"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
 end
