@@ -1,15 +1,15 @@
 class EventsController < ApplicationController
   def show
-    @users = Event.all
-    render json: {status: 'success', data: @users}
+    @events = Event.all
+    render json: {status: 'success', data: @events}
   end
 
   def addEvent
-    @event = Event.new(user_params)
+    @event = Event.new(event_params)
     if @event.save
-      render json: {status: 'success', data: @user}
+      render json: {status: 'success', data: @event}
     else
-      render json: {status: 'error', data: @user.errors}
+      render json: {status: 'error', data: @event.errors}
     end
   end
 

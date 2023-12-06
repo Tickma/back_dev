@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_031354) do
     t.string "dutch"
     t.string "genre"
     t.integer "prefecture_id"
+    t.date "event_date"
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.string :dutch
       t.string :genre
       t.belongs_to :prefecture,optional: true, index: true, foreign_key: true
+      t.date :event_date
       t.date :end_date
 
       t.timestamps
