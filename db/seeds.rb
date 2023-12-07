@@ -60,11 +60,18 @@ users = [
   {"name": "チケマ太郎", "email": "tickma@email.com", "password": "tickmapass", "birthday": "2023-10-18", "gender": "男性", "prefecture_id": 1, "job": "OL", "icon_image": "tickmaimage"}
 ]
 
+events = [
+  {"user_id": 1, "event_image": "eventimage", "event_title": "eventtitle", "dutch": "eventwari", "genre": "event", "prefecture_id": 1, "event_date": "2023-12-06", "end_date": "2023-12-06"}
+]
+
 ActiveRecord::Base.transaction do
   prefectures.each do |prefecture|
     Prefecture.create!(prefecture)
   end
   users.each do |user|
     User.create!(user)
+  end
+  events.each do |event|
+    Event.create!(event)
   end
 end
