@@ -64,6 +64,10 @@ events = [
   {"user_id": 1, "event_image": "eventimage", "event_title": "eventtitle", "dutch": "eventwari", "genre": "event", "prefecture_id": 1, "event_date": "2023-12-06", "end_date": "2023-12-06"}
 ]
 
+chatrooms = [
+  {"user_id" = 1}
+]
+
 ActiveRecord::Base.transaction do
   prefectures.each do |prefecture|
     Prefecture.create!(prefecture)
@@ -73,5 +77,8 @@ ActiveRecord::Base.transaction do
   end
   events.each do |event|
     Event.create!(event)
+  end
+  chatrooms.each do |chatroom|
+    Chatroom.create!(chatroom)
   end
 end
