@@ -65,20 +65,29 @@ events = [
 ]
 
 chatrooms = [
-  {"user_id" = 1}
+  {"user_id": 1}
+]
+
+chatroom_users = [
+  {"user_id": 1, "chatroom_id": 1}
 ]
 
 ActiveRecord::Base.transaction do
+
   prefectures.each do |prefecture|
     Prefecture.create!(prefecture)
   end
+
   users.each do |user|
     User.create!(user)
   end
+
   events.each do |event|
     Event.create!(event)
   end
+
   chatrooms.each do |chatroom|
     Chatroom.create!(chatroom)
   end
+
 end
