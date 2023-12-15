@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_12_05_023321) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2023_11_08_031354) do
   create_table "chatroom_users", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "chatroom_id", null: false
@@ -30,7 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_031354) do
     t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
->>>>>>> aea4507 ([fix] colum name _id derete)
   create_table "event_users", force: :cascade do |t|
     t.integer "user_id_id"
     t.integer "event_id_id"
@@ -91,13 +87,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_031354) do
   add_foreign_key "chatrooms", "users"
   add_foreign_key "event_users", "event_ids"
   add_foreign_key "event_users", "user_ids"
-<<<<<<< HEAD
-  add_foreign_key "events", "prefecture_ids"
-  add_foreign_key "events", "user_ids"
-  add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "users"
-=======
   add_foreign_key "events", "prefectures"
   add_foreign_key "events", "users"
->>>>>>> aea4507 ([fix] colum name _id derete)
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
 end
